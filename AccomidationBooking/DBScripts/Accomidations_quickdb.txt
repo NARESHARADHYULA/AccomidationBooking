@@ -1,0 +1,63 @@
+Accomidations
+-
+Id PK int
+Name varchar(100)
+Desc varchar(150)
+
+Hotels
+-
+Id PK int
+Name varchar(100)
+Desc varchar(150)
+Accomidations_Id int FK >- Accomidations.Id
+HotelType_Id int FK >- HotelType.Id
+
+HotelType
+-
+Id PK int
+Name varchar(100)
+
+Rooms
+-
+Id PK int
+Number int
+Maxnoofpeople int
+Availablepeople int
+isShared BIT
+Hotel_Id int Fk >- Hotels.Id
+RoomType_Id int Fk >- RoomType.Id
+RoomStatus_Id int Fk >- RoomStatus.Id
+
+
+
+RoomType
+-
+Id Pk int
+Name varchar(100)
+
+
+RoomStatus
+-
+Id int Pk
+Name varchar(100)
+
+Reservation
+-
+Id int Pk 
+Date Datetime
+CheckinDate Datetime
+CheckoutDate Datetime
+NoofPeople int
+Guest varchar(100)
+BookedBy varchar(100)
+Room_Id int FK >- Rooms.Id
+Hotel_Id int Fk >- Hotels.Id
+RoomType int 
+
+
+Guest
+-
+Id int PK
+Name varchar(100)
+
+
