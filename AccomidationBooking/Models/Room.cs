@@ -17,6 +17,7 @@ namespace AccomidationBooking.Models
         public int Maxnoofpeople { get; set; }
         public int Availablepeople { get; set; }
         public bool IsShared { get; set; }
+        public bool IsAc { get; set; }
         public int HotelId { get; set; }
         public int RoomTypeId { get; set; }
         public int RoomStatusId { get; set; }

@@ -14,18 +14,18 @@ namespace AccomidationBooking
         public Repository(DbContext context)
         {
             _dbContext = context;
-            this._dbSet = context.Set<T>();
+            _dbSet = context.Set<T>();
         }
 
         public void Add(T entity)
         {
             // insert into Account
-            this._dbSet.Add(entity);
+            _dbSet.Add(entity);
         }
 
         public void AddRange(IEnumerable<T> entities)
         {
-            this._dbSet.AddRange(entities);
+            _dbSet.AddRange(entities);
         }
 
 
@@ -53,27 +53,27 @@ namespace AccomidationBooking
         }
         public IEnumerable<T> GetAll()
         {
-            return this._dbSet.ToList();
+            return _dbSet.ToList();
         }
         public T Get(int id)
         {
-            return this._dbSet.Find(id);
+            return _dbSet.Find(id);
         }
 
         public void Remove(int id)
         {
-            T entity = this._dbSet.Find(id);
-            this._dbSet.Remove(entity);
+            T entity = _dbSet.Find(id);
+            _dbSet.Remove(entity);
         }
 
         public void Remove(T entity)
         {
-            this._dbSet.Remove(entity);
+            _dbSet.Remove(entity);
         }
 
         public void RemoveAll(IEnumerable<T> entities)
         {
-            this._dbSet.RemoveRange(entities);
+            _dbSet.RemoveRange(entities);
         }
     }
 }

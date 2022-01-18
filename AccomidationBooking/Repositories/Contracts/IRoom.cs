@@ -8,6 +8,9 @@ namespace AccomidationBooking
 {
     public interface IRoom : IRepository<Room>
     {
-
+        public IEnumerable<Room> GetBookedRooms();
+        public IEnumerable<Room> GetAvailableRooms();
+        public IEnumerable<Room> GetAvailableSharedRooms();
+        public IEnumerable<Room> GetBookedSharedRooms();
     }
 }

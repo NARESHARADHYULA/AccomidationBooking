@@ -21,7 +21,10 @@ namespace AccomidationBooking
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddDbContext<AccomidationsContext>(item =>
                 item.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             // Register all the services
@@ -44,7 +47,7 @@ namespace AccomidationBooking
             if (env.IsDevelopment() || env.IsProduction())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NKAMApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reservations v1"));
             }
 
             app.UseHttpsRedirection();
